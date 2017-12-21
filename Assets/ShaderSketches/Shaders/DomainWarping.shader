@@ -83,14 +83,14 @@
     
     ENDCG
 
-	SubShader
-	{
-		Pass
-		{
-			CGPROGRAM
-			#pragma vertex vert_img
-			#pragma fragment frag_domain_warping
-			ENDCG
-		}
-	}
+    SubShader
+    {
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert_img
+            #pragma fragment frag_domain_warping
+            ENDCG
+        }
+    }
 }

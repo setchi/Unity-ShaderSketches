@@ -48,14 +48,14 @@
     
     ENDCG
 
-	SubShader
-	{
-		Pass
-		{
-			CGPROGRAM
-			#pragma vertex vert_img
-			#pragma fragment frag_cell_noise
-			ENDCG
-		}
-	}
+    SubShader
+    {
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert_img
+            #pragma fragment frag_cell_noise
+            ENDCG
+        }
+    }
 }
