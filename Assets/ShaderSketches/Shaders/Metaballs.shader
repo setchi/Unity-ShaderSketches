@@ -15,7 +15,7 @@
         return -1.0 + 2.0 * frac(sin(st) * 43758.5453123);
     }
     
-    float4 frag_cell_noise(v2f_img i) : SV_Target
+    float4 frag(v2f_img i) : SV_Target
     {
         float2 st = i.uv;
         st *= 4.0;
@@ -49,7 +49,7 @@
         {
             CGPROGRAM
             #pragma vertex vert_img
-            #pragma fragment frag_cell_noise
+            #pragma fragment frag
             ENDCG
         }
     }

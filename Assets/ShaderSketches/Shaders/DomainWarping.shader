@@ -50,7 +50,7 @@
     
     // Domain Warping
     // http://www.iquilezles.org/www/articles/warp/warp.htm
-    float4 frag_domain_warping(v2f_img i) : SV_Target
+    float4 frag(v2f_img i) : SV_Target
     {
         float t = _Time.y;
         float2 st = i.uv;
@@ -89,7 +89,7 @@
         {
             CGPROGRAM
             #pragma vertex vert_img
-            #pragma fragment frag_domain_warping
+            #pragma fragment frag
             ENDCG
         }
     }
