@@ -292,10 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaders:
   - {fileID: 4800000, guid: 14ede45b0c5ca45978015e2e819e3df2, type: 3}
+  - {fileID: 4800000, guid: 47c28aefa91724134a40159807ec27b8, type: 3}
   - {fileID: 4800000, guid: a4f556ef3da5743699b92bd3fb4daa63, type: 3}
   list: {fileID: 1469767066}
   itemPrefab: {fileID: 1145499399895948, guid: aebcacffe915b494281d4133d15b3bf4, type: 2}
-  sketchRoot: {fileID: 0}
   sketch: {fileID: 1401728824}
   toggle: {fileID: 1477618240}
 --- !u!1 &491056882
