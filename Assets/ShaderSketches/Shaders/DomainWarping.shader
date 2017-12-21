@@ -78,7 +78,7 @@
                      float3(0.07, 1, 0.07),
                      saturate(length(r.x)));
 
-        return  float4((f * f * f + 0.6 * f * f + 0.5 * f) * color, 1.0);
+        return float4((f * f * f + 0.6 * f * f + 0.5 * f) * color, 1.0);
     }
     
     ENDCG
