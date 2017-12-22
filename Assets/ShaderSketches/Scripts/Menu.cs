@@ -8,7 +8,9 @@ public class Menu : MonoBehaviour
     [SerializeField]
     Shader[] shaders;
     [SerializeField]
-    GameObject list;
+    GameObject container;
+    [SerializeField]
+    GameObject menuRoot;
     [SerializeField]
     GameObject itemPrefab;
     [SerializeField]
@@ -22,12 +24,11 @@ public class Menu : MonoBehaviour
         for (int i = 0; i < shaders.Length; i++)
         {
             var item = Instantiate(itemPrefab);
-            item.transform.SetParent(list.transform);
+            item.transform.SetParent(container.transform);
 
             var material = CreateMaterial(shaders[i]);
             var button = item.GetComponent<Button>();
-
-            button.image.material = material;
+            button.transform.GetChild(0).GetComponent<Image>().material = material;
             button.onClick.AddListener(() => ShowSketch(material));
 
             if (i == 0) ShowSketch(material);
@@ -51,6 +52,6 @@ public class Menu : MonoBehaviour
 
     void SetListVisible(bool show)
     {
-        list.gameObject.SetActive(show);
+        menuRoot.gameObject.SetActive(show);
     }
 }
