@@ -18,7 +18,7 @@
     float4 frag(v2f_img i) : SV_Target
     {
         float2 st = i.uv;
-        st *= 2;
+        st *= 3;
 
         float2 ist = floor(st);
         float2 fst = frac(st);
