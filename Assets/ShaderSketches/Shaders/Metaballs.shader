@@ -8,10 +8,10 @@
     CGINCLUDE
     #include "UnityCG.cginc"
     
-    fixed2 random2(fixed2 st)
+    float2 random2(float2 st)
     {
-        st = fixed2(dot(st, fixed2(127.1, 311.7)),
-                    dot(st, fixed2(269.5, 183.3)));
+        st = float2(dot(st, float2(127.1, 311.7)),
+                    dot(st, float2(269.5, 183.3)));
         return -1.0 + 2.0 * frac(sin(st) * 43758.5453123);
     }
     
