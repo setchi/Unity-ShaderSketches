@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
         {
             var item = Instantiate(itemPrefab);
             item.transform.SetParent(container.transform);
+            item.transform.localScale = Vector3.one;
 
             var material = CreateMaterial(shaders[i]);
             var button = item.GetComponent<Button>();
