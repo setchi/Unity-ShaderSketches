@@ -22,7 +22,7 @@
 
         float2 fst = frac(uv * 7);
         float4 grid = lerp(float4(0, 0, 0, 1),
-                           float4(0, 1, 0, 1),
+                           float4(1, 1, 1, 1),
                            step(0.9, fst.x) + step(0.9, fst.y));
         return grid;
     }
