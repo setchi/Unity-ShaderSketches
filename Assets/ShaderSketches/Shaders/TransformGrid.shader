@@ -17,7 +17,7 @@
     
     float4 frag(v2f_img i) : SV_Target
     {
-        float radius = (1 + sin(_Time.y)) * 0.3;
+        float radius = (1 + sin(_Time.y)) * 0.05 + 0.05;
         float2 uv = transform_uv(i.uv, radius);
 
         float2 fst = frac(uv * 7);
