@@ -7,6 +7,7 @@
 
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
     
     float2 random2(float2 st)
     {
@@ -17,6 +18,8 @@
     
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float2 st = i.uv;
         st *= 4.0;
 

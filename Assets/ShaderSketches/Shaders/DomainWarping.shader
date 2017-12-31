@@ -7,6 +7,7 @@
     
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
 
     float random(float2 st)
     {
@@ -52,6 +53,8 @@
     // http://www.iquilezles.org/www/articles/warp/warp.htm
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float t = _Time.y;
         float2 st = i.uv;
 

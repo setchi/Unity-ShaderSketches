@@ -7,6 +7,7 @@
 
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
 
     float box(float2 st, float2 size)
     {
@@ -25,6 +26,8 @@
     
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float2 st = i.uv;
         float t = _Time.y;
         

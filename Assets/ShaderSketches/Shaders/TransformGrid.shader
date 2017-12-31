@@ -7,6 +7,7 @@
 
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
 
     float2 transform_uv(float2 uv, float2 radius)
     {
@@ -17,6 +18,8 @@
     
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float radius = (1 + sin(_Time.y)) * 0.05 + 0.05;
         float2 uv = transform_uv(i.uv, radius);
 

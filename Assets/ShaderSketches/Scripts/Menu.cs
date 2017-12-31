@@ -46,8 +46,14 @@ public class Menu : MonoBehaviour
         return material;
     }
 
+    readonly int screenAspectPropertyId = Shader.PropertyToID("_ScreenAspect");
     void ShowSketch(Material material)
     {
+        if (sketch.material != null)
+        {
+            sketch.material.SetInt(screenAspectPropertyId, 0);
+        }
+        material.SetInt(screenAspectPropertyId, 1);
         sketch.material = material;
     }
 

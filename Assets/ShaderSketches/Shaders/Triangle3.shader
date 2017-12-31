@@ -7,6 +7,7 @@
 
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
     
     float3 hue_to_rgb(float h)
     {
@@ -29,6 +30,8 @@
     
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float2 st = i.uv + float2(i.uv.y * 0.5 - 0.25, 0);
         float sw = swirl(floor((st) * 13) / 13 - 0.5);
         

@@ -7,6 +7,7 @@
 
     CGINCLUDE
     #include "UnityCG.cginc"
+    #include "Common.cginc"
 
     float tri(float2 st, float t)
     {
@@ -17,6 +18,8 @@
 
     float4 frag(v2f_img i) : SV_Target
     {
+        i.uv = screen_aspect(i.uv);
+        
         float2 t = _Time.xy;
         float2 st = i.uv;
         
