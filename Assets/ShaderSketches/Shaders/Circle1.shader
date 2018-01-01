@@ -26,15 +26,15 @@
         i.uv = screen_aspect(i.uv);
 
         float n = 13;
-        float freq = 15 * length(0.5 - (floor(i.uv * n) + 0.5) / n);
-        float t = sin(-_Time.y * 3 + freq) * 0.5;
+        float freq = 7 * length(0.5 - (floor(i.uv * n) + 0.5) / n);
+        float t = sin(-_Time.y * 2 + freq) * 0.5;
         
         i.uv -= 0.5;
         i.uv *= t;
         i.uv += 0.5;
         
         float a = circle(frac(i.uv * n), t);
-        return a * float4(hue_to_rgb(0.23 + freq * 0.07), 1);
+        return a * float4(hue_to_rgb(0.23 + freq * 0.16), 1);
     }
     
     ENDCG
