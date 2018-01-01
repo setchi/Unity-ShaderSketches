@@ -18,7 +18,10 @@ public class Menu : MonoBehaviour
     [SerializeField]
     Toggle toggle;
 
-    // Use this for initialization
+    List<Material> menuMaterials = new List<Material>();
+    List<Material> canvasMaterials = new List<Material>();
+
+    readonly int screenAspectPropertyId = Shader.PropertyToID("_ScreenAspect");
     void Start()
     {
         for (int i = 0; i < shaders.Length; i++)
@@ -27,12 +30,21 @@ public class Menu : MonoBehaviour
             item.transform.SetParent(container.transform);
             item.transform.localScale = Vector3.one;
 
-            var material = CreateMaterial(shaders[i]);
-            var button = item.GetComponent<Button>();
-            button.transform.GetChild(0).GetComponent<Image>().material = material;
-            button.onClick.AddListener(() => ShowSketch(material));
+            var menuMaterial = CreateMaterial(shaders[i]);
+            menuMaterial.SetInt(screenAspectPropertyId, 0);
+            menuMaterials.Add(menuMaterial);
 
-            if (i == 0) ShowSketch(material);
+            var canvasMaterial = CreateMaterial(shaders[i]);
+            canvasMaterial.SetInt(screenAspectPropertyId, 1);
+            canvasMaterials.Add(canvasMaterial);
+
+            var button = item.GetComponent<Button>();
+            button.transform.GetChild(0).GetComponent<Image>().material = menuMaterial;
+
+            var index = i;
+            button.onClick.AddListener(() => ShowSketch(index));
+
+            if (i == 0) ShowSketch(i);
         }
 
         toggle.onValueChanged.AddListener(SetListVisible);
@@ -46,15 +58,13 @@ public class Menu : MonoBehaviour
         return material;
     }
 
-    readonly int screenAspectPropertyId = Shader.PropertyToID("_ScreenAspect");
-    void ShowSketch(Material material)
+    void ShowSketch(int index)
     {
-        if (sketch.material != null)
+        if (index < 0 || index >= canvasMaterials.Count)
         {
-            sketch.material.SetInt(screenAspectPropertyId, 0);
+            return;
         }
-        material.SetInt(screenAspectPropertyId, 1);
-        sketch.material = material;
+        sketch.material = canvasMaterials[index];
     }
 
     void SetListVisible(bool show)
