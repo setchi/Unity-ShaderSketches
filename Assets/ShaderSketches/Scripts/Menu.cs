@@ -65,10 +65,12 @@ public class Menu : MonoBehaviour
             return;
         }
         sketch.material = canvasMaterials[index];
+        SetListVisible(false);
     }
 
     void SetListVisible(bool show)
     {
         menuRoot.gameObject.SetActive(show);
+        toggle.isOn = show;
     }
 }
