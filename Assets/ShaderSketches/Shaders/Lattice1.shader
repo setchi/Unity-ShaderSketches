@@ -36,12 +36,11 @@
     float4 frag(v2f_img i) : SV_Target
     {
         i.uv = screen_aspect(i.uv);
-
         i.uv = rotate(i.uv, PI / 4);
 
         float n = 10;
         float freq = 2.5 * length(0.5 - (floor(i.uv * n) + 0.5) / n);
-        float t = sin(-_Time.y + freq) * 0.5;
+        float t = sin(-_Time.y * 2 + freq) * 0.5;
 
         return box(frac(i.uv * n), t);
     }
