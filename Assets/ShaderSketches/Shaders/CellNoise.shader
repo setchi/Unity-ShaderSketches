@@ -32,7 +32,7 @@
         for (int x = -1; x <= 1; x++)
         {
             float2 neighbor = float2(x, y);
-            float2 p = 0.5 + 0.5 * sin(_Time.x * 20 + 6.2831 * random2(ist + neighbor));
+            float2 p = 0.5 + 0.5 * sin(_Time.y + 6.2831 * random2(ist + neighbor));
 
             float2 diff = neighbor + p - fst;
             distance = min(distance, length(diff));
