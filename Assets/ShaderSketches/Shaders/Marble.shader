@@ -26,7 +26,7 @@
         float2 ist = floor(st);
         float2 fst = frac(st);
 
-        float distance = 1;
+        float distance = 5;
 
         for (int y = -1; y <= 1; y++)
         for (int x = -1; x <= 1; x++)
