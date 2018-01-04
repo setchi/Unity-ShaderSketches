@@ -81,8 +81,7 @@
         float4 color = circle(frac(st * 20), 0.35 * size) * 0.15;
 
         float4 fcolor = flower(st, 5);
-        color = lerp(color, fcolor, fcolor.w);
-        return color;
+        return lerp(color, fcolor, fcolor.w);
     }
 
     ENDCG
