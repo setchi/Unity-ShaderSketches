@@ -67,9 +67,7 @@
         color = lerp(color, float4(hue_to_rgb(rand(floor(uv * n) / n)), 1), petal);
 
         float cap = circle(st + 0.5, pow(size, 2) * 0.15);
-        color = lerp(color, float4(0.99, 0.78, 0, 1), cap);
-
-        return color;
+        return lerp(color, float4(0.99, 0.78, 0, 1), cap);
     }
 
     float4 frag(v2f_img i) : SV_Target
