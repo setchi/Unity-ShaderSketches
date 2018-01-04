@@ -30,7 +30,7 @@
 
     float wave(float freq)
     {
-        return (1 + sin(-_Time.y * 1.5 + freq)) * 0.5;
+        return (1 + sin(-_Time.y * 2 + freq)) * 0.5;
     }
 
     float circle(float2 st, float size)
