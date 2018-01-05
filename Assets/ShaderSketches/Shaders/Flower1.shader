@@ -33,11 +33,6 @@
         return (1 + sin(-_Time.y * 2 + freq)) * 0.5;
     }
 
-    float circle(float2 st, float size)
-    {
-        return step(length(0.5 - st), size);
-    }
-
     float2 rotate(float2 st, float angle)
     {
         float3x3 mat = float3x3(cos(angle), -sin(angle), 0,
@@ -49,7 +44,12 @@
         return st;
     }
 
-    float4 flower(float2 uv, float n)
+    float draw_circle(float2 st, float size)
+    {
+        return step(length(0.5 - st), size);
+    }
+
+    float4 draw_flower(float2 uv, float n)
     {
         float2 st = frac(uv * n);
         st = rotate(st, _Time.y / 2);
@@ -66,7 +66,7 @@
         float petal = 1 - smoothstep(f, f + 0.02, r);
         color = lerp(color, float4(hue_to_rgb(rand(floor(uv * n) / n)), 1), petal);
 
-        float cap = circle(st + 0.5, pow(size, 2) * 0.15);
+        float cap = draw_circle(st + 0.5, pow(size, 2) * 0.15);
         return lerp(color, float4(0.99, 0.78, 0, 1), cap);
     }
 
@@ -76,10 +76,10 @@
         float2 st = rotate(i.uv, 0.25 * PI);
 
         float size = wave(frequency(st, 10));
-        float4 color = circle(frac(st * 20), 0.35 * size) * 0.15;
+        float4 color = draw_circle(frac(st * 20), 0.35 * size) * 0.15;
 
-        float4 fcolor = flower(st, 5);
-        return lerp(color, fcolor, fcolor.w);
+        float4 flower = draw_flower(st, 5);
+        return lerp(color, flower, flower.w);
     }
 
     ENDCG
