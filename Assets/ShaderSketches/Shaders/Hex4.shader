@@ -45,7 +45,7 @@
 
         i.uv.xy += _Time.x;
 
-        float h1= abs(0.4 + sin(hex_grid(i.uv) * 40) * w);
+        float h1 = abs(0.4 + sin(hex_grid(i.uv) * 40) * w);
         h1 = step(h1, 0.1);
         color = lerp(color, float4(1, 0, 1, 1), h1);
 
