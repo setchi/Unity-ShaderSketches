@@ -34,10 +34,12 @@
         float t = _Time.y;
 
         float2 st = i.uv;
-        st.y += -t * 0.3 + (1 + sin(st * 2 + t)) * 0.1;
+        float distort = -t * 0.3 + sin(st * 2 + t) * 0.1;
+        st.y += distort;
+        
         float2 fst = frac(st);
 
-        float2 offset = float2(t * 0.5, sin(t * 1.3) * 0.6);
+        float2 offset = float2(t * 0.5, sin(t * 1.3));
         float2 p = offset + st * 5;
 
         float2 ip = floor(p);
