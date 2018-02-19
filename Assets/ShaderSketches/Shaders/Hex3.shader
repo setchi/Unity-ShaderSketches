@@ -11,10 +11,10 @@
     
     float2 mod(float2 a, float2 b) { return a - b * floor(a / b); }
 
-    float hex(float2 p, float2 r)
+    float hex(float2 st, float2 r)
     {
-        p = abs(p);
-        return max(p.x - r.y, max(p.x + p.y * 0.57735, p.y * 1.1547) - r.x);
+        st = abs(st);
+        return max(st.x - r.y, max(st.x + st.y * 0.57735, st.y * 1.1547) - r.x);
     }
 
     float hex_grid(float2 st)

@@ -39,9 +39,9 @@
         return distance * 0.5;
     }
 
-    float2 pattern(float2 p)
+    float2 pattern(float2 st)
     {
-        return float2(cell_noise(p * 1), cell_noise((p + 1) * 1));
+        return float2(cell_noise(st), cell_noise(st + 1));
     }
 
     float4 frag(v2f_img i) : SV_Target

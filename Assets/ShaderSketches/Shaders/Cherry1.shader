@@ -9,9 +9,9 @@
     #include "UnityCG.cginc"
     #include "Common.cginc"
 
-    float rand(float2 uv)
+    float rand(float2 st)
     {
-        return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
+        return frac(sin(dot(st, float2(12.9898, 78.233))) * 43758.5453);
     }
 
     float2 rotate(float2 st, float angle)

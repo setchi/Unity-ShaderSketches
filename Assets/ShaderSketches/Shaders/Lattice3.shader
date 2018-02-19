@@ -11,9 +11,9 @@
 
     #define PI 3.14159265359
 
-    float rand(float2 uv)
+    float rand(float2 st)
     {
-        return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
+        return frac(sin(dot(st, float2(12.9898, 78.233))) * 43758.5453);
     }
 
     float2 rotate(float2 st, float angle)
@@ -31,9 +31,8 @@
     {
         st = rotate(st, t * 2.05 * PI / 4);
         float size = t * 1.42;
-        float2 uv = smoothstep(size, size + 0.001, st);
-        uv *= smoothstep(size, size + 0.001, 1.0 - st);
-        return uv.x * uv.y;
+        st = step(size, st) * step(size, 1.0 - st);
+        return st.x * st.y;
     }
 
     float lattice(float2 st, float n)

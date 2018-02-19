@@ -33,11 +33,11 @@
         return uv.x * uv.y;
     }
 
-    float lattice(float2 uv, float n)
+    float lattice(float2 st, float n)
     {
-        float freq = 2.5 * length(0.5 - (floor(uv * n) + 0.5) / n);
+        float freq = 2.5 * length(0.5 - (floor(st * n) + 0.5) / n);
         float t = sin(-_Time.y * 2 + freq) * 0.5;
-        return box(frac(uv * n), t);
+        return box(frac(st * n), t);
     }
 
     float4 frag(v2f_img i) : SV_Target

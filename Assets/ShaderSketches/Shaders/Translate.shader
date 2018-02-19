@@ -12,9 +12,8 @@
     float box(float2 st, float2 size)
     {
         size = 0.5 - size * 0.5;
-        float2 uv = smoothstep(size, size + 0.001, st);
-        uv *= smoothstep(size, size + 0.001, 1.0 - st);
-        return uv.x * uv.y;
+        st = step(size, st) * step(size, 1.0 - st);
+        return st.x * st.y;
     }
 
     float3x3 translate(float x, float y)

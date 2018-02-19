@@ -16,9 +16,9 @@
                         2 - abs(h - 2)));
     }
 
-    float circle(float2 uv, float size)
+    float circle(float2 st, float size)
     {
-        return step(0, size) * (1 - smoothstep(0, size, length(0.5 - uv)));
+        return step(0, size) * (1 - smoothstep(0, size, length(0.5 - st)));
     }
     
     float4 frag(v2f_img i) : SV_Target

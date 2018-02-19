@@ -14,16 +14,14 @@
     float box(float2 st, float2 size)
     {
         size = 0.5 - size * 0.5;
-        float2 uv = smoothstep(size, size + 0.001, st);
-        uv *= smoothstep(size, size + 0.001, 1.0 - st);
-        return uv.x * uv.y;
+        st = step(size, st) * step(size, 1.0 - st);
+        return st.x * st.y;
     }
 
-    float3x3 rotate(float angle)
+    float2x2 rotate(float angle)
     {
-        return float3x3(cos(angle), -sin(angle), 0,
-                        sin(angle), cos(angle), 0,
-                        0, 0, 1);
+        return float2x2(cos(angle), -sin(angle),
+                        sin(angle), cos(angle));
     }
     
     float4 frag(v2f_img i) : SV_Target
@@ -34,7 +32,7 @@
         float t = _Time.y;
         
         st -= 0.5;
-        st = mul(rotate(sin(t) * PI), float3(st, 1));
+        st = mul(rotate(sin(t) * PI), st);
         st += 0.5;
         
         return box(st, 0.4);
