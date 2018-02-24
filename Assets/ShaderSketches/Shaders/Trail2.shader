@@ -48,7 +48,7 @@
         float l2 = trail(i.uv, 20);
         float l3 = step(2, l1 + l2);
 
-        return float4(l1, l3, l2, 1) / 1.2;
+        return float4(l1, l3, l2, 1);
     }
 
     ENDCG

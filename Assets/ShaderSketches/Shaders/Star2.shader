@@ -21,8 +21,7 @@
         float a = atan2(st.y, st.x) + _Time.y * 0.3 + rand(offset) * 40;
         float l = pow(length(st), 0.8);
         float d = l - 0.5 + cos(a * 5.0) * 0.08;
-        float star = step(0, d);
-        return 1 - star;
+        return 1 - step(0, d);
     }
 
     float4 frag(v2f_img i) : SV_Target

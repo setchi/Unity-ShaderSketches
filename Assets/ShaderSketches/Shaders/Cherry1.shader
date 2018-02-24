@@ -16,11 +16,10 @@
 
     float2 rotate(float2 st, float angle)
     {
-        float3x3 mat = float3x3(cos(angle), -sin(angle), 0,
-                                sin(angle), cos(angle), 0,
-                                0, 0, 1);
+        float2x2 mat = float2x2(cos(angle), -sin(angle),
+                                sin(angle), cos(angle));
         st -= 0.5;
-        st = mul(mat, float3(st, 1));
+        st = mul(mat, st);
         st += 0.5;
         return st;
     }
