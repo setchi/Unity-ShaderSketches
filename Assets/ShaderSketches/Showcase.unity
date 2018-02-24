@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 4800000, guid: c8008f91301634769862863fb1b24619, type: 3}
   - {fileID: 4800000, guid: b518c8d962cae40068c18aec6d031ba8, type: 3}
   - {fileID: 4800000, guid: c13a15cb3aa7348188331f21aa0950c2, type: 3}
+  - {fileID: 4800000, guid: a387488defee247f39edb4594a3b0cf4, type: 3}
   container: {fileID: 1469767066}
   menuRoot: {fileID: 760244494}
   itemPrefab: {fileID: 1145499399895948, guid: aebcacffe915b494281d4133d15b3bf4, type: 2}
