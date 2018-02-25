@@ -11,12 +11,6 @@
 
     #define PI 3.14159265359
 
-    float2x2 inverse(float2x2 mat)
-    {
-        return float2x2(mat._22, -mat._12,
-                        -mat._21, mat._11);
-    }
-
     float2x2 rotate(float angle)
     {
         return float2x2(cos(angle), -sin(angle),
@@ -29,17 +23,6 @@
 
         st -= 0.5;
         st = mul(mat, st) * scale;
-        st += 0.5;
-
-        return st;
-    }
-
-    float2 irs(float2 st, float angle, float scale)
-    {
-        float2x2 mat = inverse(rotate(angle));
-
-        st -= 0.5;
-        st = mul(mat, st) / scale;
         st += 0.5;
 
         return st;
@@ -68,7 +51,7 @@
         float2 ist = floor(st * n);
         float2 fst = frac(st * n);
         
-        st = irs((ist + 0.5) / n, angle, scale);
+        st = rs((ist + 0.5) / n, -angle, 1 / scale);
         
         float tone = star(st, 0.7);
         return star(fst, 0.2 + tone * 0.65);
