@@ -44,7 +44,7 @@
     {
         float n = 51;
         float angle = -_Time.y * PI * 0.05;
-        float scale = 0.025 + (1 + sin(_Time.y * 0.6)) * 0.5 * 0.975;
+        float scale = 0.025 + (1 + sin(_Time.y * 0.6)) * 0.5 * 0.5;
 
         st = rs(st, angle, scale);
 
