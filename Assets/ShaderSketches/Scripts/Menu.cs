@@ -44,7 +44,7 @@ public class Menu : MonoBehaviour
             var index = i;
             button.onClick.AddListener(() => ShowSketch(index));
 
-            if (i == 0) ShowSketch(i);
+            if (i == shaders.Length - 1) ShowSketch(i);
         }
 
         toggle.onValueChanged.AddListener(SetListVisible);
