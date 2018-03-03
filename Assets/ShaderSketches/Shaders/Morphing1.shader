@@ -14,7 +14,7 @@
     float2 rotate(float2 st, float angle)
     {
         float2x2 mat = float2x2(cos(angle), -sin(angle),
-                        sin(angle), cos(angle));
+                                sin(angle), cos(angle));
 
         st -= 0.5;
         st = mul(mat, st);
