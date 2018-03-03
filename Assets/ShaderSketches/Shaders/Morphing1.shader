@@ -73,7 +73,7 @@
     float morphing(float2 st)
     {
         float t = _Time.y * 3;
-        float it = floor(t) % 4;
+        int it = floor(t) % 4;
         float a = smoothstep(0, 0.6, frac(t));
 
         switch (it)
