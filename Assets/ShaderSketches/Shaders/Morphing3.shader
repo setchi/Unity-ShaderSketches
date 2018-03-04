@@ -23,6 +23,15 @@
         return st;
     }
 
+    float2 scale(float2 st, float2 scale)
+    {
+        st -= 0.5;
+        st *= scale;
+        st += 0.5;
+
+        return st;
+    }
+
     float2 hex(float2 st)
     {
         st -= 0.5;
@@ -46,9 +55,7 @@
     
     float2 heart(float2 st)
     {
-        st -= 0.5;
-        st /= 1.8;
-        st += 0.5;
+        st = scale(st, 1 / 1.8);
         st = (st - float2(0.5, 0.38)) * float2(2.1, 2.8);
 
         float a = st.x;
@@ -106,21 +113,15 @@
         float2 fst = frac(st * n);
 
         st = rotate((ist + 0.5) / n, -angle);
+        st = scale(st, 1 / 3.5);
 
-        st -= 0.5;
-        st /= 3.5;
-        st += 0.5;
-
-        float m = morphing(st);
-        return morphing(fst) * m;
+        return morphing(fst) * morphing(st);
     }
 
     float4 frag(v2f_img i) : SV_Target
     {
         i.uv = screen_aspect(i.uv);
-        i.uv -= 0.5;
-        i.uv *= 1.0 + 15 * length(i.uv) * length(i.uv);
-        i.uv += 0.5;
+        i.uv = scale(i.uv, 1.0 + 15 * pow(length(i.uv - 0.5), 2));
 
         return lerp(float4(0.8, 0.8, 0.16, 1),
                     float4(0.8, 0.16, 0.58, 1),
