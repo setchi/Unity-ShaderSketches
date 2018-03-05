@@ -17,8 +17,8 @@
     float ripple(float2 st, float t)
     {
         float d = length(0.5 - st);
-        float outer = step(d, lerp(0.2, 0.45, t));
-        float inner = step(d, 0.15 + t * 0.35);
+        float outer = step(d, lerp(0.20, 0.45, t));
+        float inner = step(d, lerp(0.15, 0.50, t));
 
         return saturate(outer - inner);
     }
