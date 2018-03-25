@@ -4,6 +4,13 @@
 
 ![Screenshot](Images/Screenshot.png)
 
+## Usage
+- Clone repository
+- Open and play the following scene
+```
+Assets/ShaderSketches/Showcase.unity
+```
+
 ## Environment
 Unity 2017.3.0f3
 
