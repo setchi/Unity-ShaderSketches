@@ -26,10 +26,8 @@
         st = rotate(st, t * 2.05 * PI / 4);
         
         float size = t * 1.42;
-        float2 uv = smoothstep(size, size + 0.001, st);
-        uv *= smoothstep(size, size + 0.001, 1.0 - st);
-        
-        return uv.x * uv.y;
+        st = step(size, st) * step(size, 1.0 - st);
+        return st.x * st.y;
     }
 
     float lattice(float2 st, float n)
