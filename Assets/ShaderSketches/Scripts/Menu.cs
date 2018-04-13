@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
     List<Material> menuMaterials = new List<Material>();
     List<Material> canvasMaterials = new List<Material>();
 
-    readonly int screenAspectPropertyId = Shader.PropertyToID("_ScreenAspect");
+    readonly int useScreenAspectRatioPropertyId = Shader.PropertyToID("_UseScreenAspectRatio");
     void Start()
     {
         for (int i = 0; i < shaders.Length; i++)
@@ -31,11 +31,11 @@ public class Menu : MonoBehaviour
             item.transform.localScale = Vector3.one;
 
             var menuMaterial = CreateMaterial(shaders[i]);
-            menuMaterial.SetInt(screenAspectPropertyId, 0);
+            menuMaterial.SetInt(useScreenAspectRatioPropertyId, 0);
             menuMaterials.Add(menuMaterial);
 
             var canvasMaterial = CreateMaterial(shaders[i]);
-            canvasMaterial.SetInt(screenAspectPropertyId, 1);
+            canvasMaterial.SetInt(useScreenAspectRatioPropertyId, 1);
             canvasMaterials.Add(canvasMaterial);
 
             var button = item.GetComponent<Button>();

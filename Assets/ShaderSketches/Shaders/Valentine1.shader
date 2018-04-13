@@ -21,10 +21,7 @@
     float heart(float2 st)
     {
         st = (st - float2(0.5, 0.38)) * float2(2.1, 2.8);
-
-        float a = st.x;
-        float b = st.y - sqrt(abs(st.x));
-        return a * a + b * b;
+        return pow(st.x, 2) + pow(st.y - sqrt(abs(st.x)), 2);
     }
 
     float4 frag(v2f_img i) : SV_Target

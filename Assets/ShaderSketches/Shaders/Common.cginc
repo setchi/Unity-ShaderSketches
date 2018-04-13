@@ -1,8 +1,8 @@
-﻿int _ScreenAspect;
+﻿int _UseScreenAspectRatio;
 
 float2 screen_aspect(float2 uv)
 {
-    if (_ScreenAspect != 1)
+    if (_UseScreenAspectRatio == 0)
         return uv;
 
     uv.x -= 0.5;

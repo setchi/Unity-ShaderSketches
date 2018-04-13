@@ -32,10 +32,10 @@
         
         float r = length(st);
         float a = atan2(st.y, st.x);
-        float f1 = (abs(cos(a * 2.5)) + 0.4) * size * 1.4;
-        float f2 = (abs(sin(a * 2.5)) + 1.1) * size * 1.4;
 
-        float petal = 1 - step(min(f1, f2), r);
+        float f = min(abs(cos(a * 2.5)) + 0.4,
+                      abs(sin(a * 2.5)) + 1.1) * size * 1.4;
+        float petal = step(r, f);
         float4 color = petal * lerp(float4(1, 0.3, 1, 1), 1, r / size * 0.5);
 
         float cap = step(length(0.5 - (st + 0.5)), size * 0.3);
