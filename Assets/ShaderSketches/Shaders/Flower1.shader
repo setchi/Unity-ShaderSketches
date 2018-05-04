@@ -35,11 +35,9 @@
 
     float2 rotate(float2 st, float angle)
     {
-        float3x3 mat = float3x3(cos(angle), -sin(angle), 0,
-                                sin(angle), cos(angle), 0,
-                                0, 0, 1);
         st -= 0.5;
-        st = mul(mat, float3(st, 1));
+        st = mul(float2x2(cos(angle), -sin(angle),
+                          sin(angle),  cos(angle)), st);
         st += 0.5;
         return st;
     }
@@ -51,14 +49,11 @@
 
     float4 draw_flower(float2 uv, float n)
     {
-        float2 st = frac(uv * n);
-        st = rotate(st, _Time.y / 2);
-        st = 0.5 - st;
-        
+        float2 st = 0.5 - frac(uv * n);
         float size = wave(frequency(uv, n)) * 0.8;
         
         float r = length(st) * 2;
-        float a = atan2(st.y, st.x);
+        float a = atan2(st.y, st.x) + _Time.y / 2;
         float f = (abs(cos(a * 6)) + 0.4) * pow(size, 3) * 1.4;
 
         float4 color = 0;
