@@ -18,7 +18,7 @@
 
     float circle(float2 st) { return -0.1 + distance(0.5, st); }
 
-    float4 meta_xx(float2 st)
+    float meta_xx(float2 st)
     {
         float d = circle(move(st, 0)) *
                   circle(move(st, 4)) *
