@@ -36,13 +36,6 @@
         return l - 0.5 + cos(a * 5.0) * 0.08;
     }
 
-    float3 hue_to_rgb(float h)
-    {
-        h = frac(h) * 6 - 2;
-        return saturate(float3(abs(h - 1) - 1, 2 - abs(h),
-                        2 - abs(h - 2)));
-    }
-
     float4 meta_xx(float2 st)
     {
         st = abs(0.5 - rotate(st, -_Time.y * 3));
