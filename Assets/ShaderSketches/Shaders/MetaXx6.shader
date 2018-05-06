@@ -27,9 +27,7 @@
 
     float star(float2 st)
     {
-        float size = 0.7;
-        st -= 0.5;
-        st /= size;
+        st = (st - 0.5) / 0.7;
 
         float a = atan2(st.y, st.x) + _Time.y;
         float l = pow(length(st), 0.8);
@@ -38,7 +36,6 @@
 
     float4 meta_xx(float2 st)
     {
-
         float d = star(move(st, 0)) *
                   star(move(st, 2)) *
                   star(move(st, 4));
