@@ -12,7 +12,7 @@ Assets/ShaderSketches/Showcase.unity
 ```
 
 ## Environment
-Unity 2017.3.0f3
+Unity 2018.2.12f1
 
 ## License
 MIT
