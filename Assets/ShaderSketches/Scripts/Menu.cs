@@ -1,30 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField]
-    Shader[] shaders;
-    [SerializeField]
-    GameObject container;
-    [SerializeField]
-    GameObject menuRoot;
-    [SerializeField]
-    GameObject itemPrefab;
-    [SerializeField]
-    Image sketch;
-    [SerializeField]
-    Toggle toggle;
+    [SerializeField] Shader[] shaders;
+    [SerializeField] GameObject container;
+    [SerializeField] GameObject menuRoot;
+    [SerializeField] GameObject itemPrefab;
+    [SerializeField] Image sketch;
+    [SerializeField] Toggle toggle;
 
     List<Material> menuMaterials = new List<Material>();
     List<Material> canvasMaterials = new List<Material>();
 
     readonly int useScreenAspectRatioPropertyId = Shader.PropertyToID("_UseScreenAspectRatio");
+
     void Start()
     {
-        for (int i = 0; i < shaders.Length; i++)
+        for (var i = 0; i < shaders.Length; i++)
         {
             var item = Instantiate(itemPrefab);
             item.transform.SetParent(container.transform);
@@ -64,6 +58,7 @@ public class Menu : MonoBehaviour
         {
             return;
         }
+
         sketch.material = canvasMaterials[index];
         SetListVisible(false);
     }

@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScreenRecorder : MonoBehaviour
 {
-    [SerializeField]
-    int framerate = 30;
-    [SerializeField]
-    int superSize;
-    [SerializeField]
-    bool autoRecord;
+    [SerializeField] int framerate = 30;
+    [SerializeField] int superSize;
+    [SerializeField] bool autoRecord;
 
     int frameCount;
     bool recording;
