@@ -3,8 +3,8 @@
 public class ScreenRecorder : MonoBehaviour
 {
     [SerializeField] int framerate = 30;
-    [SerializeField] int superSize;
-    [SerializeField] bool autoRecord;
+    [SerializeField] int superSize = default;
+    [SerializeField] bool autoRecord = default;
 
     int frameCount;
     bool recording;

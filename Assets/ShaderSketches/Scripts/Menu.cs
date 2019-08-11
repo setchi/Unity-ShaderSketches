@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] Shader[] shaders;
-    [SerializeField] GameObject container;
-    [SerializeField] GameObject menuRoot;
-    [SerializeField] GameObject itemPrefab;
-    [SerializeField] Image sketch;
-    [SerializeField] Toggle toggle;
+    [SerializeField] Shader[] shaders = default;
+    [SerializeField] GameObject container = default;
+    [SerializeField] GameObject menuRoot = default;
+    [SerializeField] GameObject itemPrefab = default;
+    [SerializeField] Image sketch = default;
+    [SerializeField] Toggle toggle = default;
 
     List<Material> menuMaterials = new List<Material>();
     List<Material> canvasMaterials = new List<Material>();
