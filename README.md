@@ -1,4 +1,4 @@
-# Unity-ShaderSketches [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](http://mit-license.org)
+# Unity-ShaderSketches [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/setchi/Unity-ShaderSketches/blob/master/LICENSE)
 
 [https://setchi.jp/unity/shader-sketches/](https://setchi.jp/unity/shader-sketches/)
 
@@ -15,4 +15,4 @@ Assets/ShaderSketches/Showcase.unity
 Unity 2018.2.12f1
 
 ## License
-MIT
+[MIT](https://github.com/setchi/Unity-ShaderSketches/blob/master/LICENSE)
